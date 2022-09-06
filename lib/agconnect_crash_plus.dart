@@ -14,6 +14,6 @@
  * limitations under the License.
  */
 
-library agconnect_crash;
+library agconnect_crash_plus;
 
 export 'src/agconnect_crash.dart';

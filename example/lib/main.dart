@@ -17,7 +17,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:agconnect_crash/agconnect_crash.dart';
+import 'package:agconnect_crash/agconnect_crash_plus.dart';
 
 void main() {
   runZonedGuarded(() {

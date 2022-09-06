@@ -16,7 +16,7 @@
 
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:agconnect_crash/agconnect_crash.dart';
+import 'package:agconnect_crash_plus/agconnect_crash_plus.dart';
 
 
 void main() {
