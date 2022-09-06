@@ -37,28 +37,24 @@ import io.flutter.plugin.common.PluginRegistry.Registrar;
 
 public class AGConnectCrashPlugin implements FlutterPlugin, MethodCallHandler {
     private MethodChannel channel;
+    private Context applicationContext;
 
     @Override
     public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
-        initAGConnectSDK(flutterPluginBinding.getApplicationContext());
+        applicationContext = flutterPluginBinding.getApplicationContext();
         channel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "com.huawei.flutter/agconnect_crash");
         channel.setMethodCallHandler(this);
     }
 
-    public static void registerWith(Registrar registrar) {
-        initAGConnectSDK(registrar.context().getApplicationContext());
-        final MethodChannel channel = new MethodChannel(registrar.messenger(), "com.huawei.flutter/agconnect_crash");
-        channel.setMethodCallHandler(new AGConnectCrashPlugin());
-    }
-
-    static void initAGConnectSDK(Context context) {
+    void initAGConnectSDK() {
         if (AGConnectInstance.getInstance() == null) {
-            AGConnectInstance.initialize(context);
+            AGConnectInstance.initialize(applicationContext);
         }
     }
 
     @Override
     public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
+        initAGConnectSDK();
         if (call.method.equals("testIt")) {
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
