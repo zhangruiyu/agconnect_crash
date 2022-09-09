@@ -3,7 +3,7 @@
 # Run `pod lib lint agconnect_crash.podspec' to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'agconnect_crash_plus'
+  s.name             = 'agconnect_crash'
   s.version          = '1.0.0'
   s.summary          = 'A Flutter plugin for AGConnect Crash SDK.'
   s.description      = <<-DESC
